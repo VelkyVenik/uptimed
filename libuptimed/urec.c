@@ -125,8 +125,8 @@ time_t read_uptime(void) {
 
 
 	/* clock_gettime() failed */
-	f=fopen("/proc/uptime", "r");
-	if (f > 0) {
+	f = fopen("/proc/uptime", "r");
+	if (f) {
 		if (fscanf(f, "%lf", &upseconds) > 0) {
 			fclose(f);
 			return((time_t)upseconds);
